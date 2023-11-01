@@ -3,12 +3,14 @@ exports.up = function(knex) {
    
       return knex.schema
         .dropTableIfExists("reviews")
-        .CreateTable("reviews", table => {
+        .createTable("reviews", table => {
           table.increments("review_id").primary();
           table.specificType("content", "varchar");
           table.integer("score");
-          table.foreign("critic_id").references("critics");
-          table.foreign("movie_id").references("movies");
+          table.integer("critic_id");
+          table.integer("movie_id");
+          table.foreign("critic_id").references("critics.critic_id");
+          table.foreign("movie_id").references("movies.movie_id");
           table.timestamps(true, true);
       }
     )

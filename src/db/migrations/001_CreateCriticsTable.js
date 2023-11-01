@@ -3,7 +3,7 @@ exports.up = function(knex) {
 
     return knex.schema
         .dropTableIfExists("critics")
-        .CreateTable("critics", table => {
+        .createTable("critics", table => {
         table.increments("critic_id").primary();
         table.string("preferred_name");
         table.string("surname");
