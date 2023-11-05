@@ -9,6 +9,7 @@ async function movieExists(req, res, next){
     const movie = await service.read(movieId);
     
     if (movie) {
+        console.log(movie)
         res.locals.movie = movie;
         return next();
     } else {
@@ -64,7 +65,7 @@ async function readWithReviews(req, res){
                 critic_id: data.c_critic_id,
                 preferred_name: data.c_preferred_name,
                 surname: data.c_surname,
-                organization_name: data.c_organizaiton_name,
+                organization_name: data.c_organization_name,
                 created_at: data.c_created_at,
                 updated_at: data.c_updated_at
             }

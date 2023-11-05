@@ -18,7 +18,7 @@ async function is_showing(){
 async function read(movieId){
     return knex("movies")
     .where({"movie_id": movieId})
-    .select("movie_id as id", "title", "runtime_in_minutes", "rating", "description", "image_url")
+    .select("title", "runtime_in_minutes", "rating", "description", "image_url", "created_at", "updated_at", "movie_id")
     .first();
 }
 
