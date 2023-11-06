@@ -5,11 +5,9 @@ const service = require("./movies.service.js");
 async function movieExists(req, res, next){
 
     const { movieId } = req.params;
-    console.log("movieId", movieId)
     const movie = await service.read(movieId);
     
     if (movie) {
-        console.log(movie)
         res.locals.movie = movie;
         return next();
     } else {
